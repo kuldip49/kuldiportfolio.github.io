@@ -5,12 +5,6 @@ export const sectionPresets = {
         particleSpread: 1.0,
         glowColor: [0.39, 0.4, 0.95],
     },
-    about: {
-        particleColor: [0.4, 0.85, 0.9],
-        particleSpeed: 0.2,
-        particleSpread: 1.2,
-        glowColor: [0.27, 0.48, 0.62],
-    },
     skills: {
         particleColor: [0.0, 1.0, 0.53],
         particleSpeed: 0.5,
@@ -37,13 +31,12 @@ export const sectionPresets = {
     },
 }
 
-export const sectionOrder = ['hero', 'about', 'skills', 'projects', 'experience', 'contact']
+export const sectionOrder = ['hero', 'projects', 'skills', 'experience', 'contact']
 
 export const sectionLabels = {
     hero: 'Home',
-    about: 'About',
-    skills: 'Skills',
     projects: 'Projects',
+    skills: 'Skills',
     experience: 'Experience',
     contact: 'Contact',
 }

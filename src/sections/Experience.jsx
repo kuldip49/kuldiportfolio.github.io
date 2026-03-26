@@ -9,7 +9,7 @@ const education = [
     {
         institution: 'Lovely Professional University',
         degree: 'Bachelor of Technology — Computer Science & Engineering',
-        cgpa: '6.30 CGPA',
+        cgpa: '6.42 CGPA',
         period: 'Aug 2023 – Feb 2025',
         location: 'Punjab, India',
     },
@@ -39,8 +39,8 @@ const certificates = [
 const achievements = [
     { text: 'Solved 100+ DSA problems on LeetCode and GeeksforGeeks', date: 'Aug 2025' },
     { text: 'Completed Full-Stack Python development course at LPU', date: 'Jul 2025' },
-    { text: 'Completed AWS Cloud Computing program — architecture, security, scalability', date: 'May 2025' },
-    { text: 'Achieved excellent performance in Sports Club — teamwork, discipline, commitment', date: 'Mar 2023' },
+    { text: 'Successfully completed a comprehensive Cloud Computing program focused on Amazon Web Services (AWS), acquiring practical expertise in core AWS services, cloud architecture design, deployment with strategies, security best practices, scalability, monitoring, and cost optimization for production-grade environments. | LPU', date: 'May 2025' },
+    { text: 'Achieved excellent performance in the Sports Club, demonstrating strong teamwork, discipline, and athletic commitment. | UKAEM', date: 'Mar 2023' },
 ]
 
 export default function Experience() {
@@ -53,70 +53,79 @@ export default function Experience() {
                 viewport={{ once: false, amount: 0.1 }}
                 transition={{ staggerChildren: 0.1 }}
             >
-                <motion.h2 className="section-title" variants={fadeUp}>
-                    Experience & Education
+                <motion.h2 className="section-title glitch" data-text="CHRONICLES & ACHIEVEMENTS" variants={fadeUp}>
+                    Chronicles & Achievements
                 </motion.h2>
 
-                {/* Education Timeline */}
-                <motion.div className="timeline" variants={fadeUp}>
-                    <h3 className="subsection-title">Education</h3>
-                    {education.map((edu, i) => (
-                        <motion.div
-                            key={i}
-                            className="glass-card timeline-card"
-                            variants={fadeUp}
-                            whileHover={{ x: 6 }}
-                        >
-                            <div className="timeline-dot" />
-                            <div className="timeline-content">
-                                <h4>{edu.institution}</h4>
-                                <p className="timeline-degree">{edu.degree}</p>
-                                <div className="timeline-meta">
-                                    <span>📊 {edu.cgpa}</span>
-                                    <span>📅 {edu.period}</span>
-                                    <span>📍 {edu.location}</span>
+                <div className="experience-grid">
+                    {/* Education Timeline - ED_TRACK */}
+                    <motion.div className="timeline" variants={fadeUp}>
+                        <h3 className="subsection-title neon-text-purple">:: EDUCATION_TRACK ::</h3>
+                        {education.map((edu, i) => (
+                            <motion.div
+                                key={i}
+                                className="glass-card timeline-card neon-border-purple"
+                                variants={fadeUp}
+                                whileHover={{ x: 10, backgroundColor: 'rgba(138, 43, 226, 0.15)' }}
+                            >
+                                <div className="system-tag">ED_RECORD_{i+1}</div>
+                                <div className="timeline-content">
+                                    <h4 className="neon-text-cyan">{edu.institution}</h4>
+                                    <p className="timeline-degree">{edu.degree}</p>
+                                    <div className="timeline-meta">
+                                        <span className="meta-tag">CGPA_VAL: {edu.cgpa}</span>
+                                        <span className="meta-tag">TIME_STAMP: {edu.period}</span>
+                                    </div>
                                 </div>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+
+                    {/* Right Column: Certs & Achievements */}
+                    <div className="experience-right-col">
+                        {/* Certificates - CERT_LOG */}
+                        <motion.div variants={fadeUp} className="mb-8">
+                            <h3 className="subsection-title neon-text-cyan">:: CERTIFICATION_LOG ::</h3>
+                            <div className="cert-stack">
+                                {certificates.map((cert, i) => (
+                                    <motion.div
+                                        key={i}
+                                        className="glass-card cert-card-slim neon-border-cyan"
+                                        variants={fadeUp}
+                                        whileHover={{ x: -10, backgroundColor: 'rgba(0, 240, 255, 0.1)' }}
+                                    >
+                                        <div className="cert-info">
+                                            <h4 className="text-sm">{cert.name}</h4>
+                                            <p className="cert-org opacity-60 text-xs">{cert.org}</p>
+                                        </div>
+                                        <span className="cert-date-tag">{cert.period}</span>
+                                    </motion.div>
+                                ))}
                             </div>
                         </motion.div>
-                    ))}
-                </motion.div>
 
-                {/* Certificates */}
-                <motion.div variants={fadeUp}>
-                    <h3 className="subsection-title">Certifications</h3>
-                    <div className="cert-grid">
-                        {certificates.map((cert, i) => (
-                            <motion.div
-                                key={i}
-                                className="glass-card cert-card"
-                                variants={fadeUp}
-                                whileHover={{ scale: 1.02, y: -3 }}
-                            >
-                                <h4>{cert.name}</h4>
-                                <p className="cert-org">{cert.org}</p>
-                                <span className="cert-date">{cert.period}</span>
-                            </motion.div>
-                        ))}
+                        {/* Achievements - ACHIEV_DATA */}
+                        <motion.div variants={fadeUp}>
+                            <h3 className="subsection-title neon-text-magenta">:: ACHIEVEMENT_DATA ::</h3>
+                            <div className="achievements-stack">
+                                {achievements.map((ach, i) => (
+                                    <motion.div
+                                        key={i}
+                                        className="glass-card achievement-card neon-border-magenta"
+                                        variants={fadeUp}
+                                        whileHover={{ scale: 1.02 }}
+                                    >
+                                        <div className="achiev-icon">🏆</div>
+                                        <div className="achiev-text">
+                                            <p>{ach.text}</p>
+                                            <span className="achievement-date opacity-50 text-xs">{ach.date}</span>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </motion.div>
                     </div>
-                </motion.div>
-
-                {/* Achievements */}
-                <motion.div variants={fadeUp}>
-                    <h3 className="subsection-title">Achievements</h3>
-                    <div className="achievements-list">
-                        {achievements.map((ach, i) => (
-                            <motion.div
-                                key={i}
-                                className="glass-card achievement-card"
-                                variants={fadeUp}
-                                whileHover={{ x: 6 }}
-                            >
-                                <p>🏆 {ach.text}</p>
-                                <span className="achievement-date">{ach.date}</span>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+                </div>
             </motion.div>
         </section>
     )

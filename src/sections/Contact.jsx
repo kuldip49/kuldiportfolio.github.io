@@ -81,7 +81,7 @@ export default function Contact() {
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ staggerChildren: 0.12 }}
             >
-                <motion.h2 className="section-title" variants={fadeUp}>
+                <motion.h2 className="section-title glitch" data-text="GET IN TOUCH" variants={fadeUp}>
                     Get in Touch
                 </motion.h2>
 
@@ -90,14 +90,14 @@ export default function Contact() {
                     and innovative tech solutions. Let's build something extraordinary together.
                 </motion.p>
 
-                {/* Contact Form */}
-                <motion.form className="contact-form" variants={fadeUp} onSubmit={handleSubmit}>
+                {/* Contact Form - Terminal Booth */}
+                <motion.form className="contact-form terminal-booth" variants={fadeUp} onSubmit={handleSubmit}>
                     <div className="form-group">
                         <input
                             type="text"
                             name="name"
-                            className="form-input"
-                            placeholder="Your Name"
+                            className="terminal-input"
+                            placeholder="Your Name >"
                             value={formData.name}
                             onChange={handleChange}
                             required
@@ -107,8 +107,8 @@ export default function Contact() {
                         <input
                             type="email"
                             name="email"
-                            className="form-input"
-                            placeholder="Your Email"
+                            className="terminal-input"
+                            placeholder="Your Email >"
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -117,17 +117,26 @@ export default function Contact() {
                     <div className="form-group">
                         <textarea
                             name="message"
-                            className="form-textarea"
-                            placeholder="Your Message"
+                            className="terminal-input"
+                            style={{ minHeight: '120px' }}
+                            placeholder="Your Message >"
                             value={formData.message}
                             onChange={handleChange}
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary">
-                        Send Message →
+                    <button type="submit" className="btn btn-primary neon-border-cyan">
+                        TRANSMIT_MESSAGE
                     </button>
                 </motion.form>
+
+                {/* Download CV CTA */}
+                <motion.div className="mt-8 mb-12 flex justify-center" variants={fadeUp} style={{ display: 'flex', justifyContent: 'center', margin: '32px 0 48px' }}>
+                    <a href={`${import.meta.env.BASE_URL}Kuldip_Dhar_CV.pdf`} download="Kuldip_Dhar_CV.pdf" className="btn btn-animated">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px' }}><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Download Curriculum Vitae
+                    </a>
+                </motion.div>
 
                 {/* Contact Links */}
                 <div className="contact-grid">
